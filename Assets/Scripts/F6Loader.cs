@@ -17,26 +17,26 @@ public static class F6Loader
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     private static void LoadAll()
     {
-        // 1) º£ÀÌ½º°¡ ¸ÕÀú ¾øÀ¸¸é ·Îµå
+        // 1) ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½
         if (!SceneManager.GetSceneByName(BaseScene).isLoaded)
         {
             var op = SceneManager.LoadSceneAsync(BaseScene, LoadSceneMode.Additive);
             op.completed += _ =>
             {
-                // 2) º£ÀÌ½º¸¦ Active SceneÀ¸·Î °íÁ¤
+                // 2) ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ Active Sceneï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 var baseScn = SceneManager.GetSceneByName(BaseScene);
                 if (baseScn.IsValid())
                     SceneManager.SetActiveScene(baseScn);
 
-                // 3) ³ª¸ÓÁö ¾Àµé ·Îµå
+                // 3) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½
                 LoadOthers();
-                // 4) (¼±ÅÃ) Áßº¹ XR Origin ÀÖÀ¸¸é º£ÀÌ½º °Í¸¸ ³²±â±â
+                // 4) (ï¿½ï¿½ï¿½ï¿½) ï¿½ßºï¿½ XR Origin ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
                 KeepOnlyBaseXROrigin();
             };
         }
         else
         {
-            // ÀÌ¹Ì º£ÀÌ½º°¡ ¿­·Á ÀÖÀ¸¸é ±×´ë·Î ÁøÇà
+            // ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             LoadOthers();
             KeepOnlyBaseXROrigin();
         }
@@ -51,7 +51,7 @@ public static class F6Loader
         }
     }
 
-    // ¾ÈÀüÀåÄ¡: È¤½Ã ´Ù¸¥ ¾À¿¡ XR OriginÀÌ µé¾î°¡ ÀÖ¾îµµ º£ÀÌ½º °Í¸¸ È°¼º
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡: È¤ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ XR Originï¿½ï¿½ ï¿½ï¿½î°¡ ï¿½Ö¾îµµ ï¿½ï¿½ï¿½Ì½ï¿½ ï¿½Í¸ï¿½ È°ï¿½ï¿½
     private static void KeepOnlyBaseXROrigin()
     {
         var allRigs = Object.FindObjectsByType<Unity.XR.CoreUtils.XROrigin>(FindObjectsInactive.Include, FindObjectsSortMode.None);

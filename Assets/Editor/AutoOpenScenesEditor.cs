@@ -6,10 +6,10 @@ using UnityEngine.SceneManagement;
 [InitializeOnLoad]
 public static class AutoOpenScenesEditor
 {
-    // ºÎÆ®¾À ÀÌ¸§
+    // ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ì¸ï¿½
     private const string BootScene = "00_Boot";
 
-    // ¿­¸± ¾À ¸ñ·Ï
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½
     private static readonly string[] ScenesToAutoOpen =
     {
         "10_Base",
@@ -22,10 +22,10 @@ public static class AutoOpenScenesEditor
 
     static AutoOpenScenesEditor()
     {
-        // ¿¡µðÅÍ¿¡¼­ ¾ÀÀÌ ¿­¸± ¶§¸¶´Ù È£Ãâ
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
         EditorSceneManager.sceneOpened += (scene, mode) =>
         {
-            // ¸¸¾à ¿­¸° ¾ÀÀÌ 00_Boot¶ó¸é ÀÚµ¿À¸·Î ´Ù¸¥ ¾Àµé Additive ·Îµå
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 00_Bootï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Additive ï¿½Îµï¿½
             if (scene.name == BootScene)
             {
                 foreach (var s in ScenesToAutoOpen)
@@ -46,16 +46,16 @@ public static class AutoOpenScenesEditor
                         if (System.IO.File.Exists(path))
                         {
                             EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
-                            Debug.Log($"[AutoOpen] {s} ¾ÀÀ» Additive·Î ¿­¾ú½À´Ï´Ù.");
+                            Debug.Log($"[AutoOpen] {s} ï¿½ï¿½ï¿½ï¿½ Additiveï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
                         }
                         else
                         {
-                            Debug.LogWarning($"[AutoOpen] {path} ¾ÀÀ» Ã£À» ¼ö ¾ø½À´Ï´Ù!");
+                            Debug.LogWarning($"[AutoOpen] {path} ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½!");
                         }
                     }
                 }
 
-                // Active SceneÀº 00_BootÀ¸·Î À¯Áö
+                // Active Sceneï¿½ï¿½ 00_Bootï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 EditorSceneManager.SetActiveScene(scene);
             }
         };
