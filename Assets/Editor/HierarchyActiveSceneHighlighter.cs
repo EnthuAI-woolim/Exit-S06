@@ -39,16 +39,16 @@ public static class HierarchyActiveSceneHighlighter
         }
 
         // 우클릭 시 씬을 Active로 설정
-        if (Event.current.type == EventType.ContextClick && selectionRect.Contains(Event.current.mousePosition))
-        {
-            var menu = new GenericMenu();
-            menu.AddItem(new GUIContent($"Set Active Scene: {scene.name}"), false, () =>
-            {
-                EditorSceneManager.SetActiveScene(scene);
-            });
-            menu.ShowAsContext();
-            Event.current.Use();
-        }
+        //if (Event.current.type == EventType.ContextClick && selectionRect.Contains(Event.current.mousePosition))
+        //{
+        //    var menu = new GenericMenu();
+        //    menu.AddItem(new GUIContent($"Set Active Scene: {scene.name}"), false, () =>
+        //    {
+        //        EditorSceneManager.SetActiveScene(scene);
+        //    });
+        //    menu.ShowAsContext();
+        //    Event.current.Use();
+        //}
     }
 
     // 툴바 메뉴에서도 빠르게 전환할 수 있게
