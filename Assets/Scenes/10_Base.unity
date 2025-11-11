@@ -569,13 +569,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -4549757445259455984, guid: 1dbd62e648e75f5449a9970a17ddebb8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1344758417}
-    - targetCorrespondingSourceObject: {fileID: -4549757445259455984, guid: 1dbd62e648e75f5449a9970a17ddebb8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1344758416}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dbd62e648e75f5449a9970a17ddebb8, type: 3}
 --- !u!1001 &441087506
 PrefabInstance:
@@ -1624,7 +1618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1249617918
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2097,48 +2091,6 @@ Transform:
   - {fileID: 1564889479}
   m_Father: {fileID: 1788807594}
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!1 &1344758412 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -4549757445259455984, guid: 1dbd62e648e75f5449a9970a17ddebb8, type: 3}
-  m_PrefabInstance: {fileID: 416193189}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1344758416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344758412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61c20ae55ee48b344b513a7a05203e6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
---- !u!143 &1344758417
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1344758412}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 41.368195
-  m_Radius: 5.8424997
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1387223606
 GameObject:
   m_ObjectHideFlags: 0
