@@ -31,13 +31,19 @@ public class StartUI : MonoBehaviour
 
     public void OnClickInfo()
     {
-        if (infoPanel != null)
+        if (infoPanel != null) 
+        { 
             infoPanel.SetActive(true);
+            startPanel.SetActive(false);
+        }
     }
 
     public void OnClickCloseInfo()
     {
         if (infoPanel != null)
+        {
             infoPanel.SetActive(false);
+            startPanel.SetActive(true);
+        }
     }
 }
