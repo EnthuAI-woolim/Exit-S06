@@ -18,11 +18,14 @@ public class StairTrigger : MonoBehaviour
 
         //if (gs == null || am == null) return;
 
-        Debug.Log($"isUpStair = {isUpStair}");
-        Debug.Log($"am.HasAnomaly = {am.HasAnomaly}");
+        // Debug.Log($"isUpStair = {isUpStair}");
+        // Debug.Log($"am.HasAnomaly = {am.HasAnomaly}");
 
         // 1) 선택 결과 반영 (카운트/초기화)
-        gs.ApplyStairChoice(isUpStair, am.HasAnomaly);
+        if(gs.currentFloor > 0)
+        {
+            gs.ApplyStairChoice(isUpStair, am.HasAnomaly);
+        }
 
         // 2) 다음 위치로 텔레포트
         if (isUpStair == true && gs.currentFloor > 0) // y축 음수

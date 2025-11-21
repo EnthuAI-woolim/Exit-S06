@@ -92,6 +92,16 @@ public class GameState : MonoBehaviour
     void OnGameClear()
     {
         Debug.Log("게임 클리어! S06 건물에서 탈출!");
+
+        // 게임 클리어할때 이상현상 오브젝트 다 끄기
+        var objects = AnomalyManager.Instance.anomalyObjects;
+        foreach (var obj in objects) 
+        {
+            if (obj != null) obj.SetActive(false);
+        }
+
+
+
         // TODO: 엔딩 연출, 씬 전환 등
     }
 }
