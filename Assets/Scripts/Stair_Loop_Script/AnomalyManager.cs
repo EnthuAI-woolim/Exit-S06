@@ -6,6 +6,8 @@ public class AnomalyManager : MonoBehaviour
 
     [Tooltip("Abnomal objects (on/off objects)")]
     public GameObject[] anomalyObjects;
+    public int count;
+    public int RandomIndex;
 
     public bool HasAnomaly { get; private set; }
 
@@ -32,13 +34,15 @@ public class AnomalyManager : MonoBehaviour
         // 디폴트로 false 처리
         HasAnomaly = false;
 
-        foreach (var obj in anomalyObjects)
+        count = Random.Range(0, 2);
+
+        if(count == 1)
         {
-            if (Random.value > 0.5f)
-            {
-                obj.SetActive(true);
-                HasAnomaly = true;
-            }
+            RandomIndex = Random.Range(0, 8); // 랜덤 인덱스 생성 (0~7) 따로 설정 해줘야함
+            var obj = anomalyObjects[RandomIndex];
+            obj.SetActive(true);
+            HasAnomaly = true;
         }
+        
     }
 }

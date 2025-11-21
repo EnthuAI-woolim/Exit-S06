@@ -24,10 +24,18 @@ public class StairTrigger : MonoBehaviour
         // 1) 선택 결과 반영 (카운트/초기화)
         gs.ApplyStairChoice(isUpStair, am.HasAnomaly);
 
-        // 2) 6층 / 7층 등 다음 위치로 텔레포트
-        if (destinationPoint != null)
+        // 2) 다음 위치로 텔레포트
+        if (isUpStair == true && gs.currentFloor > 0) // y축 음수
         {
-            other.transform.position = destinationPoint.position;
+            Vector3 pos = other.transform.position;
+            pos.y = -1.578f;
+            other.transform.position = pos;
+        }
+        else if (isUpStair == false && gs.currentFloor > 0) // y축 양수
+        {
+            Vector3 pos = other.transform.position;
+            pos.y = 1.842f;
+            other.transform.position = pos;
         }
     }
 }

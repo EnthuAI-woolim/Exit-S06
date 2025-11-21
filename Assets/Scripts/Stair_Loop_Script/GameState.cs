@@ -63,17 +63,18 @@ public class GameState : MonoBehaviour
         if ((hasAnomaly == true && goingUp == true) ||
             (hasAnomaly == false && goingUp == false)) // case 1, 4 -> 초기화
         {
-            Debug.Log($"오답 => 층수 초기화");
+            
             ResetFloors();
             UpdateUI();
+            Debug.Log($"오답 => 현재 층수: {currentFloor}");
         }
         else if((hasAnomaly == false && goingUp == true) ||
                 (hasAnomaly == true && goingUp == false)) // case 2, 3 -> 현재 층수--
         {
-            Debug.Log($"정답 => 현재 층수--");
             currentFloor--;
+            Debug.Log($"정답 => 현재 층수: {currentFloor}");
 
-            if(currentFloor <= 0) // currentFloor가 0 이하면 게임 클리어 로직
+            if (currentFloor <= 0) // currentFloor가 0 이하면 게임 클리어 로직
                 OnGameClear();
         }
 
@@ -90,7 +91,7 @@ public class GameState : MonoBehaviour
 
     void OnGameClear()
     {
-        // Debug.Log("게임 클리어! S06 건물에서 탈출!");
+        Debug.Log("게임 클리어! S06 건물에서 탈출!");
         // TODO: 엔딩 연출, 씬 전환 등
     }
 }
