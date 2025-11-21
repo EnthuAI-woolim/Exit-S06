@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -23,6 +24,9 @@ public class GameState : MonoBehaviour
     public GameObject winPanel;
     bool isClearing = false;
 
+    [Header("UI reference")]
+    public TMP_Text floorText;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -45,7 +49,7 @@ public class GameState : MonoBehaviour
     public void ResetFloors()
     {
         currentFloor = startFloor;
-        UpdateUI();
+        UpdateUI(6);
         TeleportToStart();
     }
 
@@ -74,7 +78,7 @@ public class GameState : MonoBehaviour
         {
             
             ResetFloors();
-            UpdateUI();
+            UpdateUI(6);
             Debug.Log($"오답 => 현재 층수: {currentFloor}");
         }
         else if((hasAnomaly == false && goingUp == true) ||
@@ -82,6 +86,7 @@ public class GameState : MonoBehaviour
         {
             currentFloor--;
             Debug.Log($"정답 => 현재 층수: {currentFloor}");
+            UpdateUI(currentFloor);
 
             if (currentFloor <= 0) // currentFloor가 0 이하면 게임 클리어 로직
                 OnGameClear();
@@ -92,10 +97,11 @@ public class GameState : MonoBehaviour
             AnomalyManager.Instance.RandomizeAnomaly();
     }
 
-    void UpdateUI()
+    void UpdateUI(int currentFloor)
     {
-        // D-표시 텍스트 갱신 (TMP_Text 같은 거 연결해서 쓰면 됨)
-        // 예: dayText.text = $"D-{currentDays}";
+        if (floorText == null) return;
+
+        floorText.text = currentFloor.ToString() + "F";
     }
 
     void OnGameClear()
