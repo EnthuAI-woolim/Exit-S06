@@ -1,4 +1,9 @@
 using UnityEngine;
+using System.Collections;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class GameState : MonoBehaviour
 {
@@ -13,6 +18,10 @@ public class GameState : MonoBehaviour
     [Header("start position, teleport position")]
     public Transform startPoint;     // 6층
     public Transform player;         // Player Transform
+
+    [Header("Game Clear UI")]
+    public GameObject winPanel;
+    bool isClearing = false;
 
     void Awake()
     {
@@ -91,17 +100,27 @@ public class GameState : MonoBehaviour
 
     void OnGameClear()
     {
+        if (isClearing) return;
+        isClearing = true;
+        
         Debug.Log("게임 클리어! S06 건물에서 탈출!");
 
-        // 게임 클리어할때 이상현상 오브젝트 다 끄기
-        var objects = AnomalyManager.Instance.anomalyObjects;
-        foreach (var obj in objects) 
+        if (winPanel != null) 
         {
-            if (obj != null) obj.SetActive(false);
+            winPanel.SetActive(true);
+            StartCoroutine(WaitAndQuit());
         }
-
-
-
         // TODO: 엔딩 연출, 씬 전환 등
+    }
+
+    IEnumerator WaitAndQuit()
+    {
+        yield return new WaitForSeconds(5f);
+
+    #if UNITY_EDITOR
+        EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();                 
+    #endif
     }
 }
