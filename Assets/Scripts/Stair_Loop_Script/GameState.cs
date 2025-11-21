@@ -4,13 +4,13 @@ public class GameState : MonoBehaviour
 {
     public static GameState Instance { get; private set; }
 
-    [Header("시작층 (예: 6이면 6층부터 시작)")]
+    [Header("start floor, default is 6")]
     public int startFloor = 6;
 
-    [Header("현재 남은 층수(F)")]
+    [Header("current floor")]
     public int currentFloor;
 
-    [Header("초기 위치(틀렸을 때 되돌릴 위치)")]
+    [Header("start position, teleport position")]
     public Transform startPoint;     // 6층
     public Transform player;         // Player Transform
 
@@ -27,13 +27,13 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
-        ResetDays();
+        ResetFloors();
         // 처음 시작 시 이상현상 랜덤 배치
         if (AnomalyManager.Instance != null)
             AnomalyManager.Instance.RandomizeAnomaly();
     }
 
-    public void ResetDays()
+    public void ResetFloors()
     {
         currentFloor = startFloor;
         UpdateUI();
@@ -51,31 +51,30 @@ public class GameState : MonoBehaviour
     // 계단 선택 결과를 여기로 넘김
     public void ApplyStairChoice(bool goingUp, bool hasAnomaly)
     {
-        // 이상 O & 위로 → -1
-        // 이상 X & 위로 → 초기화
-        // 이상 O & 아래 → 초기화
-        // 이상 X & 아래 → -1
+        // goingUp == true -> 위쪽 이동
+        // goingUp == false -> 아래쪽 이동
+        // hasAnomaly == true -> 이상 O
+        // hasAnomaly == false -> 이상 x
+        // case 1. 이상 O & 위로 → 초기화 
+        // case 2. 이상 X & 위로 → -1 
+        // case 3. 이상 O & 아래 → -1 
+        // case 4 이상 X & 아래 → 초기화
 
-        bool correct =
-            (hasAnomaly && goingUp) ||
-            (!hasAnomaly && !goingUp);
-
-        if (correct)
+        if ((hasAnomaly == true && goingUp == true) ||
+            (hasAnomaly == false && goingUp == false)) // case 1, 4 -> 초기화
         {
-            currentFloor--;
+            Debug.Log($"오답 => 층수 초기화");
+            ResetFloors();
             UpdateUI();
-
-            Debug.Log($"정답! D-{currentFloor}");
-
-            if (currentFloor <= 0)
-            {
-                OnGameClear();
-            }
         }
-        else
+        else if((hasAnomaly == false && goingUp == true) ||
+                (hasAnomaly == true && goingUp == false)) // case 2, 3 -> 현재 층수--
         {
-            Debug.Log("오답! 층수 초기화 -> 6층");
-            ResetDays();
+            Debug.Log($"정답 => 현재 층수--");
+            currentFloor--;
+
+            if(currentFloor <= 0) // currentFloor가 0 이하면 게임 클리어 로직
+                OnGameClear();
         }
 
         // 다음 라운드 이상현상 새로 뽑기
@@ -91,7 +90,7 @@ public class GameState : MonoBehaviour
 
     void OnGameClear()
     {
-        Debug.Log("게임 클리어! S06 건물에서 탈출!");
+        // Debug.Log("게임 클리어! S06 건물에서 탈출!");
         // TODO: 엔딩 연출, 씬 전환 등
     }
 }

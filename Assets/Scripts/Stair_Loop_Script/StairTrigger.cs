@@ -1,21 +1,25 @@
 using UnityEngine;
+using System;
 
 public class StairTrigger : MonoBehaviour
 {
-    [Header("이 계단이 위로 가는 계단인지? (true=위층, false=아래층)")]
+    [Header("is it up stairs? (check=up, no check=down)")]
     public bool isUpStair = true;
 
-    [Header("계단을 지난 뒤 플레이어가 도착할 위치")]
+    [Header("stair next player position")]
     public Transform destinationPoint;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        //if (!other.CompareTag("Player")) return;
 
         var gs = GameState.Instance;
         var am = AnomalyManager.Instance;
 
-        if (gs == null || am == null) return;
+        //if (gs == null || am == null) return;
+
+        Debug.Log($"isUpStair = {isUpStair}");
+        Debug.Log($"am.HasAnomaly = {am.HasAnomaly}");
 
         // 1) 선택 결과 반영 (카운트/초기화)
         gs.ApplyStairChoice(isUpStair, am.HasAnomaly);
