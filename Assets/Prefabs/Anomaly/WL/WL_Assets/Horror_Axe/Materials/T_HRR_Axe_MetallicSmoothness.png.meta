@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7c1d22901ecd10b4bb2234b9e742ee2d
+guid: 63b7c424df1481844bc69f695fd060be
 timeCreated: 1513704083
 licenseType: Store
 TextureImporter:
@@ -75,10 +75,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 107507
-  packageName: Horror Axe
-  packageVersion: 1.1
-  assetPath: Assets/Horror_Axe/Textures/Type_01/T_HRR_Axe_MetallicSmoothness.png
-  uploadId: 230397

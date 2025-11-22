@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: abefa50f88034c34183ae942549cd2a9
+guid: 62edca08be6936b4ca0b168efec63023
 timeCreated: 1513704257
 licenseType: Store
 TextureImporter:
@@ -85,10 +85,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 107507
-  packageName: Horror Axe
-  packageVersion: 1.1
-  assetPath: Assets/Horror_Axe/Textures/Type_01/T_HRR_Axe_Normal.png
-  uploadId: 230397

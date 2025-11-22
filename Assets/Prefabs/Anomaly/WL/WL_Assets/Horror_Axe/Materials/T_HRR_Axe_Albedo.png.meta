@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 751d80a312a3746428f8df2c95807daa
+guid: 2f7426c23b0816d4da9ee9dd09addbc8
 timeCreated: 1513703734
 licenseType: Store
 TextureImporter:
@@ -85,10 +85,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 107507
-  packageName: Horror Axe
-  packageVersion: 1.1
-  assetPath: Assets/Horror_Axe/Textures/Type_01/T_HRR_Axe_Albedo.png
-  uploadId: 230397
