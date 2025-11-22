@@ -68,21 +68,21 @@ public class GameState : MonoBehaviour
         // goingUp == false -> 아래쪽 이동
         // hasAnomaly == true -> 이상 O
         // hasAnomaly == false -> 이상 x
-        // case 1. 이상 O & 위로 → 초기화 
-        // case 2. 이상 X & 위로 → -1 
-        // case 3. 이상 O & 아래 → -1 
-        // case 4 이상 X & 아래 → 초기화
+        // case 1. 이상 O & 위로 → -1
+        // case 2. 이상 X & 위로 → 초기화 
+        // case 3. 이상 O & 아래 → 초기화
+        // case 4 이상 X & 아래 → -1
 
-        if ((hasAnomaly == true && goingUp == true) ||
-            (hasAnomaly == false && goingUp == false)) // case 1, 4 -> 초기화
+        if ((hasAnomaly == false && goingUp == true) ||
+            (hasAnomaly == true && goingUp == false)) // case 2, 3 -> 초기화
         {
             
             ResetFloors();
             UpdateUI(6);
             Debug.Log($"오답 => 현재 층수: {currentFloor}");
         }
-        else if((hasAnomaly == false && goingUp == true) ||
-                (hasAnomaly == true && goingUp == false)) // case 2, 3 -> 현재 층수--
+        else if((hasAnomaly == true && goingUp == true) ||
+                (hasAnomaly == false && goingUp == false)) // case 2, 3 -> 현재 층수--
         {
             currentFloor--;
             Debug.Log($"정답 => 현재 층수: {currentFloor}");
