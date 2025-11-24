@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26bd34acfcb7fd444ad01fa942046a72
+guid: 4f868cfda3882b74bb2b0938483046c7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -89,10 +89,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 175535
-  packageName: All Nature VFX
-  packageVersion: 1.1
-  assetPath: Assets/GreenBugGames/All Nature VFX/Art/Textures/Fluff.png
-  uploadId: 418518
