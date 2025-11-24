@@ -42,8 +42,8 @@ public class GameState : MonoBehaviour
     {
         ResetFloors();
         // 처음 시작 시 이상현상 랜덤 배치
-        if (AnomalyManager.Instance != null)
-            AnomalyManager.Instance.RandomizeAnomaly();
+        //if (AnomalyManager.Instance != null)
+        //    AnomalyManager.Instance.RandomizeAnomaly();
     }
 
     public void ResetFloors()

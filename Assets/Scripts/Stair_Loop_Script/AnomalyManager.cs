@@ -8,6 +8,7 @@ public class AnomalyManager : MonoBehaviour
     public GameObject[] anomalyObjects;
     public int count;
     public int RandomIndex;
+    // public bool FirstRound = true;
 
     public bool HasAnomaly { get; private set; }
 
