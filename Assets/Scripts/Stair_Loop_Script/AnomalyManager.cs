@@ -41,7 +41,7 @@ public class AnomalyManager : MonoBehaviour
         {
             // 랜덤 인덱스 생성 (0~9) 따로 설정 해줘야함 (하드코딩)
             RandomIndex = Random.Range(0, 10);
-            var obj = anomalyObjects[RandomIndex];
+            var obj = anomalyObjects[9];
             obj.SetActive(true);
             HasAnomaly = true;
         }
