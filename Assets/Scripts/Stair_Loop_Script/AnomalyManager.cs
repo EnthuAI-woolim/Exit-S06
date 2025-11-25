@@ -35,12 +35,12 @@ public class AnomalyManager : MonoBehaviour
         // 디폴트로 false 처리
         HasAnomaly = false;
 
-        count = Random.Range(0, 2);
+        count = Random.Range(1, 11);
 
-        if(count == 1)
+        if(count <= 7)
         {
-            // 랜덤 인덱스 생성 (0~7) 따로 설정 해줘야함 (하드코딩)
-            RandomIndex = Random.Range(0, 4); 
+            // 랜덤 인덱스 생성 (0~9) 따로 설정 해줘야함 (하드코딩)
+            RandomIndex = Random.Range(0, 10);
             var obj = anomalyObjects[RandomIndex];
             obj.SetActive(true);
             HasAnomaly = true;
