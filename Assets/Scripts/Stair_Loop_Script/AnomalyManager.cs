@@ -35,9 +35,9 @@ public class AnomalyManager : MonoBehaviour
         // 디폴트로 false 처리
         HasAnomaly = false;
 
-        count = Random.Range(0, 2);
+        count = Random.Range(1, 11);
 
-        if(count == 1)
+        if(count <= 7)
         {
             // 랜덤 인덱스 생성 (0~12)
             RandomIndex = Random.Range(0, 13); 
