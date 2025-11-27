@@ -12,10 +12,7 @@ public class DoorSoundTrigger : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         // Player 태그인 객체가 근처에 오면 소리 재생
-        if (other.CompareTag("Player"))
-        {
-            if (!audioSource.isPlaying)
-                audioSource.Play();
-        }
+        if (!audioSource.isPlaying)
+            audioSource.Play();
     }
 }
